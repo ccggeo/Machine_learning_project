@@ -6,6 +6,3 @@ labels = ["Orange", "Orange", "Apple", "Apple"]
 clf = tree.DecisionTreeClassifier()
 clf = clf.fit(features, labels)
 print clf.predict([[200, 0]]) 
-
-
-1
