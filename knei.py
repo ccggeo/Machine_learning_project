@@ -1,3 +1,35 @@
+from scipy.apatial import distance
+
+def euc(a, b):
+	return distance.euclidean(a, b)
+
+import random
+
+
+class ScrappyKNN():
+	def fit(self, X_train, y_train):
+		self.X_train = X_train
+		self.y_train = y_train 
+
+	def predict(self, X_test):
+		predictions = []
+		for row in X_test:
+			label = self.closest(row) 			
+			predictions.append(label)
+		
+		return predictions
+		
+	def closest(self, row):
+		best_dist = euc(row, self.X_train[0])
+		best_index = 0
+		for i in range(1, len(self.X_train[i])
+			dist = euc(row, self.X_train[1])	
+			
+			if dist < best_dist:
+				best_dist = dist
+				best_index = i
+		return self.y_train[best_index]	
+
 from sklearn import datasets
 iris = datasets.load_iris()
 
@@ -7,9 +39,15 @@ y = iris.target
 from sklearn.cross_validation import train_test_split 
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size = .5)
 
-from sklearn.neighbors import kneighborsclassifer
+
+#from sklearn.neighbors import KNeighborsClassifier
+
+
+
+
+
 # create classifier
-my_classifier = kneghboursclassifer()
+my_classifier = ScrappyKNN()
 
 #train with training data
 my_classifier.fit(X_train, y_train)
